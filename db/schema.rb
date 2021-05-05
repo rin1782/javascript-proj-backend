@@ -14,7 +14,6 @@ ActiveRecord::Schema.define(version: 2021_05_05_023319) do
 
   create_table "chores", force: :cascade do |t|
     t.string "name"
-    t.string "completed"
     t.integer "kid_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
