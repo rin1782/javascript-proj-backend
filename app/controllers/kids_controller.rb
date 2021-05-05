@@ -10,11 +10,11 @@ class KidsController < ApplicationController
     end
 
     def create
-        @kid = Kid.create(kid_params)
-        if @kid.save
-          render json: @kid, status: :created, location: @kid
+        kid = Kid.create(kid_params)
+        if kid.save
+          render json: kid, status: :created, location: kid
         else
-          render json: @kid.errors, status: :unprocessable_entity
+          render json: kid.errors, status: :unprocessable_entity
         end
     end
     
