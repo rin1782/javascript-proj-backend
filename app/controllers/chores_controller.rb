@@ -26,7 +26,7 @@ class ChoresController < ApplicationController
     def destroy
         chore = Chore.find_by(id: params[:id])
         chore.destroy
-        render json: {message: "Congratulations kiddo!"}
+        render json: {message: "yay"}
     end
     
     private
