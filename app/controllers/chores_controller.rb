@@ -5,13 +5,22 @@ class ChoresController < ApplicationController
     end
 
     def create
-        @chore = Chore.new(chore_params)
+        
+        chore = Chore.create(chore_params)
+        render json: chore
+        
+        # @chore = Chore.new(chore_params)
     
-        if @chore.save
-          render json: @chore, status: :created, location: @chore
-        else
-          render json: @chore.errors, status: :unprocessable_entity
-        end
+        # if @chore.save
+        #   render json: @chore, status: :created, location: @chore
+        # else
+        #   render json: @chore.errors, status: :unprocessable_entity
+        # end
+    end
+
+    def show
+        chore = Chore.find_by(id: params[:id])
+        render json: chore
     end
     
       
