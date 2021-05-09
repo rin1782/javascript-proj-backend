@@ -14,10 +14,9 @@ ActiveRecord::Schema.define(version: 2021_05_05_023319) do
 
   create_table "chores", force: :cascade do |t|
     t.string "name"
-    t.integer "kid_id", null: false
+    t.integer "kid_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["kid_id"], name: "index_chores_on_kid_id"
   end
 
   create_table "kids", force: :cascade do |t|
@@ -26,5 +25,4 @@ ActiveRecord::Schema.define(version: 2021_05_05_023319) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "chores", "kids"
 end
