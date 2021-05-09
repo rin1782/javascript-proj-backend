@@ -5,12 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Kid.destroy_all()
-Chore.destroy_all()
 
 kid1 = Kid.create(name: "Aspen")
 kid2 = Kid.create(name: "Darringer")
 kid3 = Kid.create(name: "Finnley")
+
+
 
 Chore.create(name: "Sweep Deck", kid_id: kid1.id )
 Chore.create(name: "Empty Dishwasher", kid_id: kid1.id )
