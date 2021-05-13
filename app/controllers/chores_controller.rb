@@ -1,21 +1,20 @@
 class ChoresController < ApplicationController
     def index 
-        chores = Chore.all 
+        chores = Kid.find_by(id: params[:kid_id]).reviews
        
         render json: chores
     end
 
-    def show 
-        chore = Chore.find(params[:id])
-        render json: chore.to_json(except: [:created_at, :updated_at], include: {kid: {only: [:name]}})
-    end
+    # def show 
+    #     chore = Chore.find(params[:id])
+    #     render json: chore.to_json(except: [:created_at, :updated_at], include: {kid: {only: [:name]}})
+    # end
 
     def create 
-        chore = Chore.new(chore_params)
-        if chore.save 
-            render json: ChoreSerializer.new(chore, include: [:kid])
-        else
-            render json: {error: "Unable to save chore."}
+        kid = Kid.find_by(id: params[:kid_id])
+        chore = kid.chores.build(chore_params)
+        if chore.save
+            render json: chore
         end
     end
 
@@ -28,6 +27,6 @@ class ChoresController < ApplicationController
     private 
 
     def chore_params
-        params.require(:chore).permit(:name, :kid_id)
+        params.require(:chore).permit(:title)
     end
 end

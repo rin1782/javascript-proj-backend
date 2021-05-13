@@ -4,10 +4,10 @@ eli = Kid.create(name: "Eli")
 
 
 Chore.create([
-    {name: "Sweep Deck", kid: finn },
-    {name: "Empty Dishwasher", kid: finn },
-    {name: "Fold Laundry", kid: nick },
-    {name: "Water Flowers", kid: nick },
-    {name: "Feed Dog", kid: eli },
-    {name: "Wipe Windows", kid: eli }
+    {title: "Sweep Deck", kid: finn },
+    {title: "Empty Dishwasher", kid: finn },
+    {title: "Fold Laundry", kid: nick },
+    {title: "Water Flowers", kid: nick },
+    {title: "Feed Dog", kid: eli },
+    {title: "Wipe Windows", kid: eli }
 ])
