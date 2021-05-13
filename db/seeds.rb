@@ -3,10 +3,11 @@ nick = Kid.create(name: "Nick")
 eli = Kid.create(name: "Eli")
 
 
-
-Chore.create(name: "Sweep Deck", kid_id: finn.id )
-Chore.create(name: "Empty Dishwasher", kid_id: finn.id )
-Chore.create(name: "Fold Laundry", kid_id: nick.id )
-Chore.create(name: "Water Flowers", kid_id: nick.id )
-Chore.create(name: "Feed Dog", kid_id: eli.id)
-Chore.create(name: "Wipe Windows", kid_id: eli.id)
+Chore.create([
+    {name: "Sweep Deck", kid: finn },
+    {name: "Empty Dishwasher", kid: finn },
+    {name: "Fold Laundry", kid: nick },
+    {name: "Water Flowers", kid: nick },
+    {name: "Feed Dog", kid: eli },
+    {name: "Wipe Windows", kid: eli }
+])
