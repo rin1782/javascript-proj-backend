@@ -1,5 +1,5 @@
-class ChoreSerializer < ActiveModel::Serializer
+class ChoreSerializer
+  include FastJsonapi::ObjectSerializer
+  belongs_to :kid
   attributes :id, :title, :kid_id
-
-  has_one :kid
 end

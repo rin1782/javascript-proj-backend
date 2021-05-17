@@ -1,4 +1,4 @@
-class KidSerializer < ActiveModel::Serializer
-  attributes :id, :name, :chores
-  has_many :chores
+class KidSerializer
+  include FastJsonapi::ObjectSerializer
+  attributes :id, :name
 end

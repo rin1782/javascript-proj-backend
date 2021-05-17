@@ -1,32 +1,36 @@
 class ChoresController < ApplicationController
     def index 
-        chores = Kid.find_by(id: params[:kid_id]).reviews
-       
-        render json: chores
+        chores = Chore.all
+        render json: chores.to_json(include: [:kid])
     end
 
-    # def show 
-    #     chore = Chore.find(params[:id])
-    #     render json: chore.to_json(except: [:created_at, :updated_at], include: {kid: {only: [:name]}})
-    # end
+    def show 
+        chore = Chore.find_by(title: params[:title])
+        render json: chore.to_json(
+            :include => {
+                :kid => {only: [:name]}
+            })
+    end
 
     def create 
-        kid = Kid.find_by(id: params[:kid_id])
-        chore = kid.chores.build(chore_params)
+        chore = Chore.new(chore_params)
         if chore.save
             render json: chore
+        else 
+            render json: {errors: chore.errors.full_messages.to_sentence}, status: :unprocessable_entity
         end
     end
 
     def destroy 
-        chore = Chore.find(params[:id])
-        chore.destroy 
+        chore = Chore.find_by(id: params[:id])
+        if chore.destroy 
         render json: {message: "Great Job! This chore is done!"}
+        end
     end
 
     private 
 
     def chore_params
-        params.require(:chore).permit(:title)
+        params.require(:chore).permit(:title, :kid_name)
     end
 end
