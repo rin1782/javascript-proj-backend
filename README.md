@@ -1,24 +1,14 @@
-# README
+# FRONTEND JAVASCRIPT GITHUB: 
+    https://github.com/rin1782/javascript_proj_frontend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a rails API created with fast json serializers
 
-Things you may want to cover:
+This restful API will connect with a frontend vanilla JavaScript frontend to display a user's children to sort out their daily chores.
 
-* Ruby version
+There are two model classes: Kid and Chore. Chores belong to the kids and a kid has many chores.
 
-* System dependencies
+The frontend will make multiple AJAX calls to the API to grab information about the children's pre-seeded chores. 
 
-* Configuration
+Currently, a user is able to Read all of and then Delete the children's chores as they finish. 
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Eventually I will add methods in the chore's controller to also be able to Create and Update to round out the CRUD operations. 
