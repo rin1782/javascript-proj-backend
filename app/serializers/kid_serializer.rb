@@ -1,4 +1,5 @@
 class KidSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :id, :name
+  attributes :name 
+  has_many :chores
 end
