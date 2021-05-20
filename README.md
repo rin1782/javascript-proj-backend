@@ -1,6 +1,9 @@
 # FRONTEND JAVASCRIPT GITHUB: 
     https://github.com/rin1782/javascript_proj_frontend
 
+# Diagram.drawio link(frontend plans):
+    https://app.diagrams.net/#G1u8wLcpnvBkorxaFATyDV6qujURKpmgEZ
+
 This is a rails API created with fast json serializers
 
 This restful API will connect with a frontend vanilla JavaScript frontend to display a user's children to sort out their daily chores.

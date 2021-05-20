@@ -1,3 +1,7 @@
+Kid.destroy_all
+Chore.destroy_all
+
+
 finn = Kid.create(name: "Finnley")
 nick = Kid.create(name: "Nick")
 eli = Kid.create(name: "Eli")
