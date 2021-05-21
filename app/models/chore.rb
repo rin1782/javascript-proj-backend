@@ -14,7 +14,7 @@ class Chore < ApplicationRecord
           title: self.title,
           kid: {
               id: self.kid.id,
-              name: self.author.name
+              name: self.kid.name
            }
        }
   end 
