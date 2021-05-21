@@ -5,4 +5,6 @@ class KidsController < ApplicationController
       
       render json: KidSerializer.new(kids, include: [:chores])
     end
+
+    
 end
