@@ -1,14 +1,23 @@
 class Chore < ApplicationRecord
-    belongs_to :kid
+  belongs_to :kid
 
-    def kid_name=(name)
-      kid = Kid.find_by(name: name)
-      self.kid = kid
-    end
 
-    def kid_name
-      kid.name
-    end
+  def self.arr_to_json
+      self.all.map do |c|
+          c.instance_to_json
+      end 
+  end 
+
+  def instance_to_json
+      { 
+          id: self.id,
+          title: self.title,
+          kid: {
+              id: self.kid.id,
+              name: self.author.name
+           }
+       }
+  end 
 
 
 end

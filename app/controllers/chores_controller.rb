@@ -1,22 +1,20 @@
 class ChoresController < ApplicationController
     def index 
         chores = Chore.all
-        render json: ChoreSerializer.new(chores)
+        render json: Chore.arr_to_json
     end
 
     def show 
-        chore = Chore.find(params[:id])
-        render json: chore.to_json(except: [:created_at, :updated_at], include: {kid: {only: [:name]}})
-    end
-
-    def create 
-        chore = Chore.new(chore_params)
+        chore = Chore.new(post_params)
+        kid = Kid.find_or_create_by(name: params[:kid])
+        post.kid_id =  kid.id
         if chore.save
-            render json: ChoreSerializer.new(chore, include: [:category])
+            render json: chore.instance_to_json
         else 
-            render json: {errors: chore.errors.full_messages.to_sentence}, status: :unprocessable_entity
+            render json: chore.errors, status: :unprocessable_entity
         end
     end
+
 
     def destroy 
         chore = Chore.find(params[:id])
@@ -28,6 +26,6 @@ class ChoresController < ApplicationController
     private 
 
     def chore_params
-        params.require(:chore).permit(:id, :title, :kid_id, :kid_name)
+        params.require(:chore).permit(:title, :kid_id)
     end
 end
